@@ -1,0 +1,31 @@
+<view class="topRender">
+  <view class="header">
+    <view class="header-left">企查查</view>
+    <view class="header-right">全国企业信息查询系统官网备案企业征信机构 </view>
+  </view>
+  <input class="weui-input" auto-focus placeholder="请输入企业名、人名等关键词搜索"/>
+</view>
+<view class="desWapper">
+  <view class='des {{tabIndex==0 ? "active" : ""}}' bindtap="changeTabIndex" data-index="0">商业快讯</view>
+  <view class='des {{tabIndex==1 ? "active" : ""}}' bindtap="changeTabIndex" data-index="1">监控日报</view>
+</view>
+
+<view wx:if="{{tabIndex == 0}}" class="content">
+  <view class="pannel">
+    2020年03月31日
+  </view>
+  
+  <scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
+    <view class="news"  wx:for-items="{{array}}" wx:for-item="item">
+      <view class="time">{{item.time}}</view>
+      <view class="title"> {{item.title}}</view>
+      <view class="type"> {{item.type}}</view>
+      <view> {{item.content}}</view>
+      <view> 分享到微信 </view>
+    </view>
+  </scroll-view>
+
+</view>
+<view wx:else class="content">
+  这个是监控日报的具体内容
+</view>
